@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise SaaS | CircuitFern Use Cases</title>
+    <meta name="description"
+        content="CircuitFern builds event-driven architectures, product analytics platforms, and multi-tenant data systems for enterprise SaaS companies.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F2A44;
+            --teal: #20B2AA;
+            --teal-light: #5CD6CE;
+            --dark: #0A1628;
+            --muted: #5A7184;
+            --bg: #FAFCFE;
+            --border: #E8EDF2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Rajdhani', sans-serif;
+            color: #0C1B2E;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Chakra Petch', sans-serif;
+            line-height: 1.15;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(32, 178, 170, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+
+        .logo em {
+            font-style: normal;
+            color: var(--teal);
+        }
+
+        .back {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: 0.3s;
+            font-family: 'Chakra Petch';
+            letter-spacing: 0.5px;
+        }
+
+        .back:hover {
+            color: #fff;
+        }
+
+        .uc-hero {
+            background: var(--dark);
+            color: #fff;
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 80%, rgba(32, 178, 170, 0.1), transparent 55%);
+        }
+
+        .uc-hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .uc-hero .eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+            font-family: 'Chakra Petch';
+        }
+
+        .uc-hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            max-width: 750px;
+        }
+
+        .uc-hero h1 span {
+            color: var(--teal);
+        }
+
+        .uc-hero p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .hero-img {
+            margin-top: 4rem;
+            border-radius: 20px;
+            overflow: hidden;
+            max-height: 400px;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.85);
+        }
+
+        .content-section {
+            padding: 5rem 0;
+        }
+
+        .content-section+.content-section {
+            border-top: 1px solid var(--border);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 0.35fr 0.65fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .content-grid .label {
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--teal);
+            position: sticky;
+            top: 6rem;
+        }
+
+        .content-grid h2 {
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .content-grid p {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cap-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .cap-list li {
+            padding: 1.2rem 1.5rem;
+            background: #f4f8fb;
+            border-radius: 14px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .cap-list li:hover {
+            border-color: rgba(32, 178, 170, 0.25);
+            transform: translateX(4px);
+        }
+
+        .cap-list .cl-num {
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: var(--teal);
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .cap-list h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cap-list p {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        .stats-bar {
+            padding: 4rem 0;
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 0.3rem;
+            letter-spacing: -1px;
+        }
+
+        .stat p {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .tech-strip {
+            padding: 3rem 0;
+            background: #f4f8fb;
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-strip h3 {
+            text-align: center;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .tech-tags span {
+            padding: 0.5rem 1.2rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+            font-family: 'Chakra Petch';
+            letter-spacing: 0.5px;
+        }
+
+        .uc-cta {
+            padding: 5rem 0;
+            text-align: center;
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .uc-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .uc-cta p {
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 2rem;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-cta:hover {
+            background: var(--teal-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(32, 178, 170, 0.35);
+        }
+
+        @media (max-width: 768px) {
+            .uc-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .content-grid .label {
+                position: static;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" class="logo">circuit<em>fern</em></a>
+        <a href="../index.html" class="back">← Back to Home</a>
+    </header>
+
+    <section class="uc-hero">
+        <div class="container">
+            <p class="eyebrow">Use Case — Enterprise SaaS</p>
+            <h1>Event-Driven <span>Architecture</span> & Product Analytics at Scale</h1>
+            <p>We engineer the data backbone for high-growth SaaS platforms — from real-time product analytics and
+                personalization engines to multi-tenant data architectures that scale to millions of users.</p>
+        </div>
+        <div class="container">
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80"
+                    alt="SaaS Platform Technology" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container content-grid">
+            <div class="label">The Challenge</div>
+            <div>
+                <h2>Scaling Data Infrastructure at the Pace of Product Growth</h2>
+                <p>SaaS companies face a unique data paradox: product velocity demands real-time analytics, yet rapid
+                    growth creates exponential data complexity. Teams struggle with data silos across product,
+                    marketing, and customer success — while the underlying infrastructure groans under ever-increasing
+                    event volumes.</p>
+                <p>CircuitFern builds event-driven data architectures purpose-designed for SaaS scale — systems that
+                    ingest billions of events, power sub-second personalization, and deliver self-service analytics to
+                    every team without compromising multi-tenant data isolation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container content-grid">
+            <div class="label">Capabilities</div>
+            <div>
+                <h2>Engineered for Velocity, Isolation & Intelligence</h2>
+                <p>Our SaaS practice covers the full data lifecycle — from event ingestion to product intelligence.</p>
+                <ul class="cap-list">
+                    <li>
+                        <span class="cl-num">01</span>
+                        <div>
+                            <h4>Real-Time Event Processing Pipeline</h4>
+                            <p>Streaming architectures ingesting clickstream, API, and application events at scale —
+                                powering real-time feature flags, in-app personalization, and behavioral cohort analysis
+                                with sub-second latency.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cl-num">02</span>
+                        <div>
+                            <h4>Multi-Tenant Data Architecture</h4>
+                            <p>Isolation-first data platforms with tenant-level encryption, configurable data residency,
+                                and dynamic resource scaling — enabling enterprise-grade security without sacrificing
+                                shared infrastructure economics.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cl-num">03</span>
+                        <div>
+                            <h4>Product Analytics & Experimentation</h4>
+                            <p>Self-service analytics platforms enabling product teams to track feature adoption, run
+                                A/B experiments, and measure user engagement — with automated statistical rigor and
+                                real-time dashboards.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cl-num">04</span>
+                        <div>
+                            <h4>Revenue Intelligence Platform</h4>
+                            <p>Unified data models connecting product usage, subscription events, and customer health
+                                signals — powering predictive churn models, expansion revenue identification, and
+                                usage-based pricing optimization.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="container stats-row">
+            <div class="stat">
+                <h3>2.4B+</h3>
+                <p>Events Processed Daily</p>
+            </div>
+            <div class="stat">
+                <h3>&lt;50ms</h3>
+                <p>Personalization Latency</p>
+            </div>
+            <div class="stat">
+                <h3>99.99%</h3>
+                <p>Tenant Data Isolation</p>
+            </div>
+            <div class="stat">
+                <h3>3.8x</h3>
+                <p>Faster Experimentation</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-strip">
+        <div class="container">
+            <h3>Technology Stack</h3>
+            <div class="tech-tags">
+                <span>Apache Kafka</span>
+                <span>ClickHouse</span>
+                <span>Snowflake</span>
+                <span>Segment</span>
+                <span>Apache Flink</span>
+                <span>dbt</span>
+                <span>Fivetran</span>
+                <span>LookML</span>
+                <span>Kubernetes</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="uc-cta">
+        <div class="container">
+            <h2>Scale Your Data Infrastructure.</h2>
+            <p>Schedule a discovery call with our SaaS platform architects.</p>
+            <a href="../company/contact.html" class="btn-cta">Request a Consultation</a>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services | CircuitFern Use Cases</title>
+    <meta name="description"
+        content="CircuitFern builds real-time fraud detection, compliance-first data lakes, and regulatory reporting pipelines for financial services enterprises.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F2A44;
+            --teal: #20B2AA;
+            --teal-light: #5CD6CE;
+            --dark: #0A1628;
+            --muted: #5A7184;
+            --bg: #FAFCFE;
+            --border: #E8EDF2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Rajdhani', sans-serif;
+            color: #0C1B2E;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Chakra Petch', sans-serif;
+            line-height: 1.15;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(32, 178, 170, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+
+        .logo em {
+            font-style: normal;
+            color: var(--teal);
+        }
+
+        .back {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: 0.3s;
+            font-family: 'Chakra Petch';
+            letter-spacing: 0.5px;
+        }
+
+        .back:hover {
+            color: #fff;
+        }
+
+        /* HERO */
+        .uc-hero {
+            background: var(--dark);
+            color: #fff;
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 80%, rgba(32, 178, 170, 0.1), transparent 55%);
+        }
+
+        .uc-hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .uc-hero .eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+            font-family: 'Chakra Petch';
+        }
+
+        .uc-hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        .uc-hero h1 span {
+            color: var(--teal);
+        }
+
+        .uc-hero p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .hero-img {
+            margin-top: 4rem;
+            border-radius: 20px;
+            overflow: hidden;
+            max-height: 400px;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.85);
+        }
+
+        /* CONTENT */
+        .content-section {
+            padding: 5rem 0;
+        }
+
+        .content-section+.content-section {
+            border-top: 1px solid var(--border);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 0.35fr 0.65fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .content-grid .label {
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--teal);
+            position: sticky;
+            top: 6rem;
+        }
+
+        .content-grid h2 {
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .content-grid p {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cap-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .cap-list li {
+            padding: 1.2rem 1.5rem;
+            background: #f4f8fb;
+            border-radius: 14px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .cap-list li:hover {
+            border-color: rgba(32, 178, 170, 0.25);
+            transform: translateX(4px);
+        }
+
+        .cap-list .cl-num {
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: var(--teal);
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .cap-list h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cap-list p {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        /* STATS */
+        .stats-bar {
+            padding: 4rem 0;
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 0.3rem;
+            letter-spacing: -1px;
+        }
+
+        .stat p {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        /* TECH */
+        .tech-strip {
+            padding: 3rem 0;
+            background: #f4f8fb;
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-strip h3 {
+            text-align: center;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .tech-tags span {
+            padding: 0.5rem 1.2rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+            font-family: 'Chakra Petch';
+            letter-spacing: 0.5px;
+        }
+
+        /* CTA */
+        .uc-cta {
+            padding: 5rem 0;
+            text-align: center;
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .uc-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .uc-cta p {
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 2rem;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            font-family: 'Chakra Petch';
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-cta:hover {
+            background: var(--teal-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(32, 178, 170, 0.35);
+        }
+
+        @media (max-width: 768px) {
+            .uc-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .content-grid .label {
+                position: static;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" class="logo">circuit<em>fern</em></a>
+        <a href="../index.html" class="back">← Back to Home</a>
+    </header>
+
+    <section class="uc-hero">
+        <div class="container">
+            <p class="eyebrow">Use Case — Financial Services</p>
+            <h1>Real-Time <span>Fraud Intelligence</span> & Compliance Automation</h1>
+            <p>We architect the data infrastructure that financial institutions need to detect fraud in milliseconds,
+                automate regulatory reporting, and build compliance-first analytics platforms.</p>
+        </div>
+        <div class="container">
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80"
+                    alt="Financial Trading Data Analytics" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container content-grid">
+            <div class="label">The Challenge</div>
+            <div>
+                <h2>Legacy Systems Can't Keep Pace with Modern Financial Crime</h2>
+                <p>Financial institutions face an escalating paradox: regulatory requirements grow more complex each
+                    quarter while fraudsters deploy increasingly sophisticated attack vectors. Legacy batch-processing
+                    systems introduce dangerous latency — a gap that costs the global banking sector an estimated $40
+                    billion annually in fraud losses.</p>
+                <p>CircuitFern addresses this by engineering streaming data architectures that process transaction
+                    events in real-time, apply ML-powered anomaly detection, and trigger compliance workflows — all
+                    within the strict security perimeters of SOX, GDPR, and PCI-DSS frameworks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container content-grid">
+            <div class="label">Capabilities</div>
+            <div>
+                <h2>Engineered for Speed, Security & Scale</h2>
+                <p>Our financial services practice covers the full spectrum — from fraud detection engines to regulatory
+                    data lakes.</p>
+                <ul class="cap-list">
+                    <li>
+                        <span class="cl-num">01</span>
+                        <div>
+                            <h4>Sub-100ms Fraud Detection Engine</h4>
+                            <p>Streaming ML pipelines ingesting transaction events from payment gateways, card networks,
+                                and ACH systems — scoring risk in real-time with configurable alert thresholds and
+                                automated case routing.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cl-num">02</span>
+                        <div>
+                            <h4>Compliance Data Lake Architecture</h4>
+                            <p>Purpose-built data lakes with immutable audit trails, automated data classification, and
+                                granular access controls — designed from day one for SOX, PCI-DSS, and GDPR compliance
+                                mandates.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cl-num">03</span>
+                        <div>
+                            <h4>Automated Regulatory Reporting</h4>
+                            <p>End-to-end pipelines that ingest raw transaction data, apply regulatory transformations,
+                                and generate submission-ready reports for RBI, SEC, and SEBI filings — reducing manual
+                                effort by up to 85%.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cl-num">04</span>
+                        <div>
+                            <h4>Customer Risk Intelligence Platform</h4>
+                            <p>360° customer risk profiles aggregating KYC data, transaction patterns, and external
+                                signals — powering proactive risk management and AML compliance at scale.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="container stats-row">
+            <div class="stat">
+                <h3>&lt;100ms</h3>
+                <p>Fraud Detection Latency</p>
+            </div>
+            <div class="stat">
+                <h3>85%</h3>
+                <p>Reporting Automation</p>
+            </div>
+            <div class="stat">
+                <h3>99.99%</h3>
+                <p>Platform Availability</p>
+            </div>
+            <div class="stat">
+                <h3>12M+</h3>
+                <p>Daily Transactions Processed</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-strip">
+        <div class="container">
+            <h3>Technology Stack</h3>
+            <div class="tech-tags">
+                <span>Apache Kafka</span>
+                <span>Apache Flink</span>
+                <span>Snowflake</span>
+                <span>Databricks</span>
+                <span>AWS Kinesis</span>
+                <span>dbt</span>
+                <span>Great Expectations</span>
+                <span>MLflow</span>
+                <span>Terraform</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="uc-cta">
+        <div class="container">
+            <h2>Secure Your Data Infrastructure.</h2>
+            <p>Schedule a discovery call with our financial services architects.</p>
+            <a href="../company/contact.html" class="btn-cta">Request a Consultation</a>
+        </div>
+    </section>
+</body>
+
+</html>
